@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>il Taroncello · Restaurante italiano en Alzira</title>
+<meta name="description" content="il Taroncello, restaurante italiano en Alzira: pizzas artesanas, pasta, risotto y hamburguesas. Terraza, opciones sin gluten y tardeo los viernes. Reserva mesa en el 962 45 50 55.">
+<meta name="theme-color" content="#3A2117">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Spectral:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* Paleta: carteles de su Instagram (cacao sobre nata, oro del logo) y su carta impresa naranja */
+  :root{
+    --cacao:#3A2117;      /* letras de sus carteles */
+    --cacao-2:#5A3626;
+    --nata:#F6ECDC;       /* fondo de los carteles */
+    --papel:#FFFAF2;
+    --taronja:#E58A1F;    /* carta impresa */
+    --taronja-claro:#F4B860;
+    --oro:#B98A3C;        /* los pájaros del logo */
+    --fulla:#2F4A2A;      /* hoja de naranjo */
+    --tinta:#2A1810;
+    --tinta-suave:#6B5244;
+
+    --display:"Big Shoulders Display", "Arial Narrow", sans-serif;
+    --serif:"Spectral", Georgia, serif;
+    --gutter:16px;
+    --max:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--serif);font-size:18px;line-height:1.6;padding-bottom:78px}
+  @media (min-width:900px){body{padding-bottom:0}}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--taronja);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+  @media (min-width:700px){:root{--gutter:32px}}
+  section{scroll-margin-top:70px}
+
+  h1,h2,h3{margin:0;font-weight:800}
+  .titulo{font-family:var(--display);font-weight:900;font-size:clamp(46px,9vw,96px);line-height:.88;letter-spacing:-.005em;color:var(--cacao)}
+  .entrada{font-size:19px;color:var(--tinta-suave);max-width:34em;margin:16px 0 0}
+
+  /* Botones */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background-color .15s ease, transform .15s ease;white-space:nowrap}
+  .btn:active{transform:scale(.97)}
+  .btn svg{width:20px;height:20px;flex:none}
+  .btn-taronja{background:var(--taronja);color:var(--cacao)}
+  .btn-taronja:hover{background:#f19a33}
+  .btn-cacao{background:var(--cacao);color:var(--nata)}
+  .btn-cacao:hover{background:var(--cacao-2)}
+  .btn-linea{border-color:var(--cacao);color:var(--cacao);background:transparent}
+  .btn-linea:hover{background:rgba(58,33,23,.07)}
+
+  /* Cabecera */
+  .cab{position:sticky;top:0;z-index:40;background:rgba(246,236,220,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(58,33,23,.12)}
+  .cab .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+  .marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--cacao)}
+  .marca svg{width:30px;height:30px;flex:none}
+  .marca span{font-family:var(--serif);font-size:23px;font-weight:600;letter-spacing:.01em;line-height:1}
+  .marca i{font-weight:400}
+  .nav{display:none;gap:26px;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:.03em}
+  .nav a{text-decoration:none;color:var(--cacao)}
+  .nav a:hover{color:var(--taronja)}
+  .cab .btn{min-height:42px;font-size:18px;padding:0 18px;display:none}
+  @media (min-width:900px){.cab .btn{display:inline-flex}}
+  @media (min-width:900px){.nav{display:flex}}
+
+  /* Hero: el cartel de PIZZA de su Instagram, hecho web */
+  .hero{background:var(--nata);overflow:hidden;position:relative}
+  .cartel{position:relative;padding:22px 0 0;text-align:center}
+  .cartel .linea{display:block;font-family:var(--display);font-weight:900;color:var(--cacao);line-height:.8;font-size:min(34vw,300px);letter-spacing:-.01em;user-select:none}
+  .cartel .pizza{position:absolute;left:50%;top:50%;width:min(68vw,520px);aspect-ratio:1;transform:translate(-50%,-46%);border-radius:50%;overflow:hidden;box-shadow:0 30px 60px -20px rgba(58,33,23,.55)}
+  .cartel .pizza img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+  .hero-pie{padding:34px 0 44px;display:grid;gap:22px}
+  .hero-pie h1{font-family:var(--serif);font-weight:600;font-size:clamp(28px,5vw,44px);line-height:1.15;color:var(--cacao);max-width:20em}
+  .hero-pie h1 small{display:block;font-family:var(--display);font-weight:800;font-size:.62em;letter-spacing:.04em;color:var(--taronja);margin-bottom:6px}
+  .hero-pie p{margin:0;color:var(--tinta-suave);max-width:36em}
+  .botones{display:flex;flex-wrap:wrap;gap:12px}
+  .estado{display:inline-flex;align-items:center;gap:10px;font-size:16px;color:var(--cacao);background:var(--papel);border:1px solid rgba(58,33,23,.15);border-radius:999px;padding:7px 16px 7px 12px;width:fit-content}
+  .estado::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--oro)}
+  .estado.abierto::before{background:#3E8E3A;box-shadow:0 0 0 4px rgba(62,142,58,.18)}
+  .estado.cerrado::before{background:#B4442A}
+  .hero-pie .lado{display:grid;gap:18px;justify-items:start}
+  @media (min-width:1000px){
+    .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;max-width:var(--max);margin:0 auto;padding:0 var(--gutter);min-height:calc(100vh - 64px);min-height:calc(100svh - 64px)}
+    .cartel{padding:30px 0}
+    .cartel .linea{font-size:min(15vw,29vh,240px)}
+    .cartel .pizza{width:min(27vw,50vh,420px)}
+    .hero-pie{padding:30px 0 30px 40px;max-width:none;margin:0}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .cartel .pizza{animation:gira 1.4s cubic-bezier(.2,.8,.2,1) both}
+    @keyframes gira{from{transform:translate(-50%,-30%) rotate(-40deg);opacity:0}to{transform:translate(-50%,-46%) rotate(0);opacity:1}}
+  }
+
+  /* Banda de confianza */
+  .banda{background:var(--taronja);color:var(--cacao)}
+  .banda ul{list-style:none;margin:0;padding:18px 0;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em}
+  .banda li{display:flex;align-items:center;gap:8px}
+  .banda .nota{font-size:30px;line-height:1}
+  .estrellas{color:var(--cacao);letter-spacing:2px;font-size:17px}
+
+  /* Plato estrella */
+  .estrella{padding:84px 0}
+  .estrella .wrap{display:grid;gap:34px;align-items:center}
+  .estrella figure{margin:0;position:relative}
+  .estrella figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:220px 220px 10px 10px}
+  .estrella .sello{position:absolute;right:-6px;bottom:24px;background:var(--cacao);color:var(--nata);border-radius:50%;width:116px;height:116px;display:grid;place-content:center;text-align:center;font-family:var(--display);font-weight:900;font-size:34px;line-height:.9;transform:rotate(-8deg)}
+  .estrella .sello small{display:block;font-size:14px;font-weight:600;letter-spacing:.05em;color:var(--taronja-claro)}
+  .ingredientes{list-style:none;padding:0;margin:22px 0 28px;display:flex;flex-wrap:wrap;gap:8px}
+  .ingredientes li{border:1.5px solid var(--cacao);border-radius:999px;padding:3px 14px;font-size:16px}
+  @media (min-width:900px){.estrella .wrap{grid-template-columns:5fr 6fr;gap:70px}}
+
+  /* Selección */
+  .seleccion{padding:20px 0 90px}
+  .cabeza{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:18px;margin-bottom:34px}
+  .platos{display:grid;grid-template-columns:1fr;gap:30px 24px}
+  @media (min-width:600px){.platos{grid-template-columns:1fr 1fr}}
+  @media (min-width:1000px){.platos{grid-template-columns:repeat(4,1fr)}}
+  .plato img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;background:var(--nata)}
+  .plato .tipo{font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:.04em;color:var(--taronja);margin:14px 0 2px}
+  .plato h3{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.2;display:flex;justify-content:space-between;gap:12px;color:var(--cacao)}
+  .plato h3 .precio{font-family:var(--display);font-weight:800;font-size:22px;white-space:nowrap}
+  .plato p{margin:6px 0 0;font-size:16px;color:var(--tinta-suave);line-height:1.5}
+
+  /* Carta en papel naranja, como la impresa */
+  .carta{background:var(--taronja);padding:80px 0;position:relative}
+  .carta .titulo{color:var(--cacao)}
+  .carta .entrada{color:var(--cacao)}
+  .papel{margin-top:36px;background:#EE9E3A;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(58,33,23,.18), 0 20px 40px -24px rgba(58,33,23,.6);padding:8px 0 26px}
+  .pestanas{display:flex;gap:6px;overflow-x:auto;padding:12px 16px;scrollbar-width:none;border-bottom:1.5px solid rgba(58,33,23,.25)}
+  .pestanas::-webkit-scrollbar{display:none}
+  .pestanas button{flex:none;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:.03em;color:var(--cacao);background:transparent;border:1.5px solid transparent;border-radius:999px;padding:6px 16px;cursor:pointer}
+  .pestanas button[aria-selected="true"]{background:var(--cacao);color:var(--taronja-claro)}
+  .pestanas button:hover:not([aria-selected="true"]){border-color:var(--cacao)}
+  .lista{list-style:none;margin:0;padding:10px 16px 0;columns:1}
+  @media (min-width:800px){.lista{columns:2;column-gap:56px;padding:18px 34px 0}}
+  .lista li{break-inside:avoid;padding:12px 0;border-bottom:1px dashed rgba(58,33,23,.3)}
+  .lista .fila{display:flex;align-items:baseline;gap:8px;font-weight:600;font-size:19px;color:var(--cacao)}
+  .lista .fila::after{content:"";order:1;flex:1;border-bottom:2px dotted rgba(58,33,23,.45);transform:translateY(-5px)}
+  .lista .fila .pr{order:2;font-family:var(--display);font-weight:800;font-size:21px}
+  .lista p{margin:2px 0 0;font-size:15.5px;line-height:1.45;color:#4a2a1a}
+  .lista li.oculto{display:none}
+  .mas{display:block;margin:18px auto 0;font-family:var(--display);font-weight:800;font-size:19px;color:var(--cacao);background:transparent;border:2px solid var(--cacao);border-radius:999px;padding:8px 22px;cursor:pointer}
+  .mas:hover{background:rgba(58,33,23,.08)}
+  .aviso-carta{margin:22px 16px 0;font-size:15px;color:var(--cacao)}
+  @media (min-width:800px){.aviso-carta{margin:22px 34px 0}}
+
+  /* Cómo reservar */
+  .pasos{padding:90px 0}
+  .pasos ol{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:22px;counter-reset:p}
+  @media (min-width:900px){.pasos ol{grid-template-columns:repeat(3,1fr);gap:40px}}
+  .pasos li{counter-increment:p;border-top:3px solid var(--cacao);padding-top:16px}
+  .pasos li::before{content:counter(p);font-family:var(--display);font-weight:900;font-size:64px;line-height:1;color:var(--taronja);display:block}
+  .pasos h3{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--cacao);margin-top:6px}
+  .pasos p{margin:6px 0 0;color:var(--tinta-suave);font-size:17px}
+  .llevar{margin-top:46px;background:var(--nata);border-radius:10px;padding:26px 22px;display:grid;gap:16px}
+  .llevar h3{font-family:var(--display);font-weight:900;font-size:34px;line-height:1;color:var(--cacao)}
+  .llevar p{margin:0;color:var(--tinta-suave)}
+  @media (min-width:900px){.llevar{grid-template-columns:1fr auto;align-items:center;padding:30px 36px}}
+
+  /* Reseñas */
+  .resenas{background:var(--cacao);color:var(--nata);padding:86px 0}
+  .resenas .titulo{color:var(--nata)}
+  .resenas .entrada{color:#d9c6b0}
+  .citas{display:grid;gap:22px;margin-top:40px}
+  @media (min-width:900px){.citas{grid-template-columns:repeat(3,1fr);gap:28px}}
+  .cita{margin:0;border-left:3px solid var(--taronja);padding:4px 0 4px 20px}
+  .cita .estrellas{color:var(--taronja-claro)}
+  .cita blockquote{margin:10px 0 12px;font-size:21px;line-height:1.45;font-style:italic}
+  .cita figcaption{font-size:15px;color:#cbb59c}
+
+  /* Tardeo */
+  .tardeo{display:grid;background:var(--nata)}
+  .tardeo img{width:100%;height:100%;min-height:300px;object-fit:cover}
+  .tardeo .texto{padding:56px var(--gutter)}
+  .tardeo .texto p{color:var(--tinta-suave);margin:14px 0 0;max-width:30em}
+  @media (min-width:900px){.tardeo{grid-template-columns:1fr 1fr}.tardeo .texto{padding:80px 64px;align-self:center}}
+
+  /* Galería */
+  .galeria{padding:86px 0}
+  .rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:32px}
+  .rejilla img{width:100%;aspect-ratio:1;object-fit:cover}
+  .rejilla a{display:block;overflow:hidden}
+
+  /* Visítanos */
+  .visita{background:var(--nata);padding:86px 0}
+  .visita .wrap{display:grid;gap:36px}
+  @media (min-width:900px){.visita .wrap{grid-template-columns:1fr 1.1fr;gap:56px}}
+  .horario{width:100%;border-collapse:collapse;margin-top:24px;font-size:17px}
+  .horario th,.horario td{padding:10px 8px;border-bottom:1px solid rgba(58,33,23,.15);text-align:left;vertical-align:top}
+  .horario th{font-weight:600;width:38%;color:var(--cacao)}
+  .horario td{color:var(--tinta-suave)}
+  .horario tr.hoy th,.horario tr.hoy td{background:var(--taronja);color:var(--cacao);font-weight:600}
+  .horario tr.hoy th{border-radius:6px 0 0 6px}
+  .horario tr.hoy td{border-radius:0 6px 6px 0}
+  .datos{margin:26px 0 0;display:grid;gap:12px;font-size:17px}
+  .datos a{text-decoration-color:rgba(58,33,23,.35);text-underline-offset:3px}
+  .mapa{border-radius:10px;overflow:hidden;min-height:340px;background:#e8dcc7}
+  .mapa iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+  .grande{margin-top:26px;width:100%;min-height:62px;font-size:24px}
+  @media (min-width:900px){.grande{width:auto}}
+
+  /* Pie */
+  .pie{background:var(--tinta);color:#d8c7b3;padding:46px 0 36px;font-size:15px}
+  .pie .wrap{display:grid;gap:22px}
+  .pie .marca{color:var(--nata)}
+  .pie nav{display:flex;flex-wrap:wrap;gap:10px 22px}
+  .pie a{color:#efe1cd;text-decoration:none}
+  .pie a:hover{text-decoration:underline}
+  @media (min-width:900px){.pie .wrap{grid-template-columns:1fr auto auto;align-items:center;gap:40px}}
+
+  /* Barra fija móvil */
+  .barra{position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:1fr 1.4fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--papel);border-top:1px solid rgba(58,33,23,.15);box-shadow:0 -8px 20px rgba(58,33,23,.1)}
+  .barra .btn{min-height:50px;font-size:19px;padding:0 12px}
+  @media (min-width:900px){.barra{display:none}}
+
+  /* Franja para el dueño */
+  .duenyo{background:#fff;border-top:6px dashed var(--taronja);padding:60px 0 80px;font-family:system-ui,-apple-system,sans-serif;font-size:16px;color:#222}
+  .duenyo .aviso{display:inline-block;background:#222;color:#fff;font-size:13px;padding:4px 10px;border-radius:4px;margin-bottom:16px}
+  .duenyo h2{font-family:system-ui,-apple-system,sans-serif;font-size:26px;font-weight:700;margin:0 0 22px}
+  .duenyo ol{display:grid;gap:16px;padding-left:22px;margin:0 0 26px;max-width:62em}
+  .duenyo li strong{display:block}
+  .duenyo button{font:inherit;font-weight:600;background:#222;color:#fff;border:0;border-radius:6px;padding:12px 18px;cursor:pointer}
+  .edit{transition:background-color .2s, outline-color .2s}
+  body.ver-editables .edit{background:#fff36b!important;color:#222!important;outline:2px dashed #d11;outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header class="cab">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="il Taroncello, inicio">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="18" r="12" fill="#E58A1F"/><circle cx="16" cy="18" r="12" fill="none" stroke="#3A2117" stroke-width="1.5"/><path d="M16 6c1-3 4-4.5 7.5-4-0.6 3.4-3.6 5-7.5 4z" fill="#2F4A2A"/><circle cx="12" cy="15" r="1" fill="#F4B860"/><circle cx="19" cy="21" r="1" fill="#F4B860"/><circle cx="20" cy="14" r=".8" fill="#F4B860"/></svg>
+      <span><i>il</i> Taroncello</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#carta">Carta</a>
+      <a href="#reservar">Reservar</a>
+      <a href="#tardeo">Tardeo</a>
+      <a href="#visitanos">Horario</a>
+    </nav>
+    <a class="btn btn-cacao" href="tel:+34962455055">Reservar mesa</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<section class="hero" aria-labelledby="h-hero">
+  <div class="hero-grid">
+  <div class="cartel" aria-hidden="true">
+    <span class="linea">PIZZA</span>
+    <span class="linea">PIZZA</span>
+    <span class="linea">PIZZA</span>
+    <div class="pizza"><img src="https://images.unsplash.com/photo-1692737580563-7ba2d896f0f6?w=1100&h=1100&fit=crop&q=75&auto=format" alt=""></div>
+  </div>
+  <div class="wrap hero-pie">
+    <div>
+      <h1 id="h-hero"><small>Restaurante italiano en Alzira</small>Pizzas artesanas, pasta y risotto, y una terraza para alargar la noche</h1>
+    </div>
+    <div class="lado">
+      <p>Una carta larga para compartir, opciones sin gluten y sitio dentro y fuera. Reserva tu mesa o llévatelo a casa.</p>
+      <div class="botones">
+        <a class="btn btn-cacao" href="tel:+34962455055">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          Reservar mesa
+        </a>
+        <a class="btn btn-linea" href="#llevar">Para llevar o a domicilio</a>
+      </div>
+      <span class="estado" id="estado" role="status">Comprobando horario…</span>
+    </div>
+  </div>
+  </div>
+</section>
+
+<div class="banda">
+  <ul class="wrap">
+    <li><span class="nota">4,5</span> <span class="estrellas" aria-hidden="true">★★★★★</span> 463 reseñas en Google</li>
+    <li>Terraza</li>
+    <li>Opciones sin gluten</li>
+    <li>Tardeo los viernes</li>
+    <li>Accesible en silla de ruedas</li>
+  </ul>
+</div>
+
+<section class="estrella" aria-labelledby="h-estrella">
+  <div class="wrap">
+    <figure>
+      <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=900&h=1125&fit=crop&q=75&auto=format" alt="Pizza de pepperoni y jamón recién horneada" loading="lazy">
+      <div class="sello edit">14,50 €<small>la de la casa</small></div>
+    </figure>
+    <div>
+      <h2 class="titulo" id="h-estrella">La pizza<br>Taroncello</h2>
+      <p class="entrada">Si solo vas a pedir una, que sea la que lleva nuestro nombre: jamón york, pepperoni y atún sobre nuestra masa artesana.</p>
+      <ul class="ingredientes" aria-label="Ingredientes">
+        <li>Tomate</li><li>Mozzarella</li><li>Jamón york</li><li>Pepperoni</li><li>Atún</li>
+      </ul>
+      <div class="botones">
+        <a class="btn btn-taronja" href="tel:+34962455055">Reservar y probarla</a>
+        <a class="btn btn-linea" href="#carta" id="ver-pizzas">Ver las 19 pizzas</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seleccion" aria-labelledby="h-sel">
+  <div class="wrap">
+    <div class="cabeza">
+      <div>
+        <h2 class="titulo" id="h-sel">Lo que más se pide</h2>
+        <p class="entrada">Para empezar al centro, seguir con pizza o pasta y acabar con algo dulce.</p>
+      </div>
+    </div>
+    <div class="platos">
+      <article class="plato">
+        <img src="https://images.unsplash.com/photo-1565599837634-134bc3aadce8?w=600&h=600&fit=crop&q=75&auto=format" alt="Patatas con salsa por encima" loading="lazy">
+        <p class="tipo">Aperitivo</p>
+        <h3>Patatas al tartufo <span class="precio edit">11,90 €</span></h3>
+        <p>Con salsa de trufa, bacon y parmesano. Las que más salen en las reseñas.</p>
+      </article>
+      <article class="plato">
+        <img src="https://images.unsplash.com/photo-1778600731531-7d836a32704c?w=600&h=600&fit=crop&q=75&auto=format" alt="Calamares rebozados con salsas" loading="lazy">
+        <p class="tipo">Aperitivo</p>
+        <h3>Calamares <span class="precio edit">10,90 €</span></h3>
+        <p>Aros de calamar rebozados, para compartir mientras llega la pizza.</p>
+      </article>
+      <article class="plato">
+        <img src="https://images.unsplash.com/photo-1692737580563-7ba2d896f0f6?w=600&h=600&fit=crop&q=75&auto=format" alt="Pizza con jamón y champiñones" loading="lazy">
+        <p class="tipo">Pizza</p>
+        <h3>Jamón y queso <span class="precio edit">12,50 €</span></h3>
+        <p>Tomate, mozzarella y jamón york. La clásica que nunca falla.</p>
+      </article>
+      <article class="plato">
+        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&h=600&fit=crop&q=75&auto=format" alt="Pizza recién horneada" loading="lazy">
+        <p class="tipo">Pizza</p>
+        <h3>Pizza Bologna <span class="precio edit">16,50 €</span></h3>
+        <p>Mozzarella, mortadela italiana, burrata y pistachos. Con pesto, +1,50 €.</p>
+      </article>
+      <article class="plato">
+        <img src="https://images.unsplash.com/photo-1778850620699-79ba3ff60bf0?w=600&h=600&fit=crop&q=75&auto=format" alt="Ravioli con tomates cherry" loading="lazy">
+        <p class="tipo">Pasta</p>
+        <h3>Bottoni Gamberros <span class="precio edit">17,00 €</span></h3>
+        <p>Ravioli rellenos de gamba roja con aceite de pimentón.</p>
+      </article>
+      <article class="plato">
+        <img src="https://images.unsplash.com/photo-1709429790175-b02bb1b19207?w=600&h=600&fit=crop&q=75&auto=format" alt="Lasaña boloñesa gratinada" loading="lazy">
+        <p class="tipo">Gratinado</p>
+        <h3>Lasaña a la boloñesa <span class="precio edit">13,50 €</span></h3>
+        <p>Carne picada, salsa de tomate y mozzarella, al estilo italiano.</p>
+      </article>
+      <article class="plato">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=600&fit=crop&q=75&auto=format" alt="Hamburguesa con lechuga y tomate" loading="lazy">
+        <p class="tipo">Hamburguesa</p>
+        <h3>La Trufada <span class="precio edit">15,50 €</span></h3>
+        <p>Brioche, 175 g de Angus, tomate, lechuga y salsa de trufa. También sin gluten.</p>
+      </article>
+      <article class="plato">
+        <img src="https://images.unsplash.com/photo-1708175313856-8573b2bf8a3a?w=600&h=600&fit=crop&q=75&auto=format" alt="Porción de tarta en un plato" loading="lazy">
+        <p class="tipo">Dulce</p>
+        <h3>Tarta de dulce de leche <span class="precio edit">7,50 €</span></h3>
+        <p>O los Straccetti: churros de masa de pizza con Nutella y chocolate blanco.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="carta" id="carta" aria-labelledby="h-carta">
+  <div class="wrap">
+    <h2 class="titulo" id="h-carta">La carta</h2>
+    <p class="entrada">La carta del restaurante, siempre a mano. Elige una sección.</p>
+    <div class="papel">
+      <div class="pestanas" role="tablist" aria-label="Secciones de la carta" id="pestanas"></div>
+      <ul class="lista" id="lista" role="tabpanel" aria-live="polite"></ul>
+      <button type="button" class="mas" id="mas" hidden></button>
+      <p class="aviso-carta">Tenemos opciones sin gluten de pizza, pasta y hamburguesa. Pregúntanos: no somos un restaurante 100 % sin gluten y puede haber trazas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pasos" id="reservar" aria-labelledby="h-pasos">
+  <div class="wrap">
+    <h2 class="titulo" id="h-pasos">Reservar mesa</h2>
+    <p class="entrada">Los fines de semana se llena, así que mejor llamar antes.</p>
+    <ol>
+      <li>
+        <h3>Llámanos</h3>
+        <p>Al <a href="tel:+34962455055">962 45 50 55</a>, en horario de apertura.</p>
+      </li>
+      <li>
+        <h3>Dinos día, hora y cuántos sois</h3>
+        <p>Y si queréis terraza o dentro. Para grupos tenemos menús cerrados.</p>
+      </li>
+      <li>
+        <h3>Te guardamos la mesa</h3>
+        <p>Llegas, te sientas y empiezas por unas patatas al tartufo.</p>
+      </li>
+    </ol>
+    <div class="llevar" id="llevar">
+      <div>
+        <h3>Para llevar o a domicilio</h3>
+        <p>Llama, haz tu pedido y pásate a recogerlo, o te lo llevamos a casa. <span class="edit">Reparto por Alzira; consulta zona y pedido mínimo.</span></p>
+      </div>
+      <a class="btn btn-taronja" href="tel:+34962455055">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        Pedir al 962 45 50 55
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="resenas" aria-labelledby="h-res">
+  <div class="wrap">
+    <h2 class="titulo" id="h-res">Lo que dicen de nosotros</h2>
+    <p class="entrada">4,5 de media en 463 reseñas de Google.</p>
+    <div class="citas">
+      <figure class="cita">
+        <div class="estrellas" aria-label="5 estrellas">★★★★★</div>
+        <blockquote>“Excelente servicio, comida exquisita, y aseos muy limpios, volveremos.”</blockquote>
+        <figcaption>Reseñas de Google</figcaption>
+      </figure>
+      <figure class="cita">
+        <div class="estrellas" aria-label="5 estrellas">★★★★★</div>
+        <blockquote>“Muy buenas pizzas, todo variado, y buen servicio, repetiremos de 10.”</blockquote>
+        <figcaption>Reseñas de Google</figcaption>
+      </figure>
+      <figure class="cita">
+        <div class="estrellas" aria-label="5 estrellas">★★★★★</div>
+        <blockquote>“El servicio genial, muy rápidos y muy pendientes de todo. La comida buenísima, las pizzas espectaculares.”</blockquote>
+        <figcaption>Reseñas de Google</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="tardeo" id="tardeo" aria-labelledby="h-tardeo">
+  <img src="https://images.unsplash.com/photo-1570598912132-0ba1dc952b7d?w=1000&h=800&fit=crop&q=75&auto=format" alt="Dos cócteles de naranja con hielo y romero" loading="lazy">
+  <div class="texto">
+    <h2 class="titulo" id="h-tardeo">Viernes de tardeo</h2>
+    <p>Cada viernes, <span class="edit">de 19:00 a 22:00</span>, música en directo, copas y algo para picar. Y los partidos importantes, en nuestras pantallas.</p>
+    <p>Los artistas de cada semana los anunciamos en Instagram.</p>
+    <div class="botones" style="margin-top:24px">
+      <a class="btn btn-cacao" href="https://www.instagram.com/iltaroncello/" target="_blank" rel="noopener">Ver el próximo tardeo</a>
+    </div>
+  </div>
+</section>
+
+<section class="galeria" aria-labelledby="h-gal">
+  <div class="wrap">
+    <div class="cabeza">
+      <div>
+        <h2 class="titulo" id="h-gal">@iltaroncello</h2>
+        <p class="entrada">Platos nuevos, tardeos y lo que pasa cada semana en el local.</p>
+      </div>
+      <a class="btn btn-taronja" href="https://www.instagram.com/iltaroncello/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        Síguenos en Instagram
+      </a>
+    </div>
+    <div class="rejilla">
+      <a href="https://www.instagram.com/iltaroncello/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1763647836753-e06fe1f8707b?w=500&h=500&fit=crop&q=70&auto=format" alt="Pizzas en el horno" loading="lazy"></a>
+      <a href="https://www.instagram.com/iltaroncello/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1772645521066-fc021da69250?w=500&h=500&fit=crop&q=70&auto=format" alt="Terraza iluminada por la noche" loading="lazy"></a>
+      <a href="https://www.instagram.com/iltaroncello/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1769458313988-2cd932ab2777?w=500&h=500&fit=crop&q=70&auto=format" alt="Porción de pizza con queso fundido" loading="lazy"></a>
+      <a href="https://www.instagram.com/iltaroncello/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1769458313937-b5ad8f84942e?w=500&h=500&fit=crop&q=70&auto=format" alt="Ensalada caprese con tomate y mozzarella" loading="lazy"></a>
+      <a href="https://www.instagram.com/iltaroncello/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1761062062542-133c221ef184?w=500&h=500&fit=crop&q=70&auto=format" alt="Naranjas en la rama" loading="lazy"></a>
+      <a href="https://www.instagram.com/iltaroncello/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1537734796389-e1fc293cf856?w=500&h=500&fit=crop&q=70&auto=format" alt="Bola de masa de pizza" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<section class="visita" id="visitanos" aria-labelledby="h-vis">
+  <div class="wrap">
+    <div>
+      <h2 class="titulo" id="h-vis">Ven a vernos</h2>
+      <table class="horario" id="horario" aria-label="Horario">
+        <tbody>
+          <tr data-d="1"><th>Lunes</th><td>Cerrado</td></tr>
+          <tr data-d="2"><th>Martes</th><td>Cerrado</td></tr>
+          <tr data-d="3"><th>Miércoles</th><td>19:00 – 23:00</td></tr>
+          <tr data-d="4"><th>Jueves</th><td>19:00 – 23:00</td></tr>
+          <tr data-d="5"><th>Viernes</th><td>12:30 – 16:00<br>19:00 – 00:30</td></tr>
+          <tr data-d="6"><th>Sábado</th><td>12:30 – 16:00<br>19:00 – 00:30</td></tr>
+          <tr data-d="0"><th>Domingo</th><td>12:00 – 16:30<br>19:00 – 00:00</td></tr>
+        </tbody>
+      </table>
+      <div class="datos">
+        <div>Carrer de Jaume d'Olid, 36<br>46600 Alzira, Valencia</div>
+        <div><a href="tel:+34962455055">962 45 50 55</a></div>
+        <div><a href="https://www.google.com/maps/dir/?api=1&destination=39.1555327,-0.4283779" target="_blank" rel="noopener">Cómo llegar</a></div>
+      </div>
+      <a class="btn btn-cacao grande" href="tel:+34962455055">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        Reservar mesa
+      </a>
+    </div>
+    <div class="mapa">
+      <iframe title="Mapa de il Taroncello en Alzira" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=il%20Taroncello%2C%20Carrer%20de%20Jaume%20d'Olid%2036%2C%20Alzira&z=16&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <a class="marca" href="#inicio">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="18" r="12" fill="#E58A1F"/><path d="M16 6c1-3 4-4.5 7.5-4-0.6 3.4-3.6 5-7.5 4z" fill="#6E8F4E"/></svg>
+      <span><i>il</i> Taroncello</span>
+    </a>
+    <nav aria-label="Redes">
+      <a href="https://www.instagram.com/iltaroncello/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.google.com/maps/place/il+Taroncello/@39.1555327,-0.4283779,17z" target="_blank" rel="noopener">Google Maps</a>
+      <a href="tel:+34962455055">962 45 50 55</a>
+    </nav>
+    <nav aria-label="Legal">
+      <a href="#" class="edit">Aviso legal</a>
+      <a href="#" class="edit">Privacidad</a>
+      <a href="#" class="edit">Cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="barra" aria-label="Acciones rápidas">
+  <a class="btn btn-linea" href="tel:+34962455055">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+    Llamar
+  </a>
+  <a class="btn btn-cacao" href="tel:+34962455055">Reservar mesa</a>
+</div>
+
+<section class="duenyo" aria-labelledby="h-duenyo">
+  <div class="wrap">
+    <span class="aviso">Esta franja no aparece en la web publicada</span>
+    <h2 id="h-duenyo">Por qué os vendría bien esta web</h2>
+    <ol>
+      <li><strong>Vuestra carta, en vuestra web.</strong> Ahora la carta está en una página externa (NordQR). Aquí la tenéis con vuestra imagen, y cambiar un precio o un plato es cosa de un minuto.</li>
+      <li><strong>Reservas directas.</strong> Quien os encuentra en Instagram o en Google llega a un botón de "Reservar mesa" que llama al restaurante, sin intermediarios ni comisiones.</li>
+      <li><strong>Salir cuando buscan "restaurante italiano en Alzira" o "pizzería en Alzira".</strong> Una web propia con dirección, horario y carta ayuda a Google a mostraros por delante.</li>
+      <li><strong>El 4,5 con 463 reseñas, bien a la vista.</strong> Junto con la terraza, las opciones sin gluten y los tardeos de los viernes, que hoy solo se ven si alguien entra en vuestro Instagram.</li>
+    </ol>
+    <button type="button" id="ver-edit" aria-pressed="false">Resaltar datos a confirmar</button>
+  </div>
+</section>
+
+<script>
+  /* Carta real (NordQR, carta de sala). Precios a confirmar con el restaurante. */
+  const CARTA = {
+    "Pizzas": [
+      ["Margarita","Tomate, albahaca y mozzarella","10,50"],
+      ["Jamón y queso","Tomate, mozzarella y jamón york","12,50"],
+      ["Taroncello","Tomate, mozzarella, jamón york, pepperoni y atún","14,50"],
+      ["4 estaciones","Tomate, mozzarella, jamón york, champiñones, olivas y alcachofas","14,50"],
+      ["Barbacoa","Tomate, barbacoa, mozzarella, cebolla, carne picada y bacon","14,50"],
+      ["Green York","Tomate, mozzarella, york, calabacín, champiñones, rúcula y parmesano","14,50"],
+      ["Serranita","Mozzarella, tomate, jamón serrano, cebolla, espárragos y queso curado","14,50"],
+      ["1000 quesos","Mozzarella, tomate, parmesano, cheddar, ricota, gorgonzola y brie","14,50"],
+      ["Pepperoni","Tomate, mozzarella y pepperoni","13,50"],
+      ["Almussafes","Tomate, sobrasada ibérica, mozzarella, cebolla y parmesano","14,50"],
+      ["La Mascarposa","Tomate, mozzarella, jamón serrano, parmesano y mascarpone","14,50"],
+      ["Carbonara","Nata, mozzarella, pollo, bacon, cebolla y champiñones","14,50"],
+      ["Verdi","Tomate, mozzarella, verduras de temporada y parmesano","13,50"],
+      ["La Guanciale","Tomate, mozzarella, guanciale, huevo y parmesano","14,50"],
+      ["La Italiana","Cherry, mozzarella, rúcula, jamón serrano y parmesano","13,50"],
+      ["Calzone","Tomate, mozzarella, jamón york y champiñones","13,90"],
+      ["Pizza Bologna","Mozzarella, mortadela italiana, burrata y pistachos. Extra pesto +1,50 €","16,50"],
+      ["Pizza Los Lara","Mozzarella, bresaola, stracciatella ahumada, trufa y pistachos","17,00"],
+      ["La Vecina del 4.º","Tomate San Marzano DOP, mozzarella, guanciale, alcachofas, queso de cabra y miel","16,00"]
+    ],
+    "Aperitivos": [
+      ["Nuestras patatas bravas caseras","Patatas baby, salsas bravas caseras, ajoaceite y polvo de nachos","6,50"],
+      ["Patatas al tartufo","Salsa de trufa, bacon y parmesano","11,90"],
+      ["Tiras de pollo en adobo","Con mostaza dulce al eneldo","10,50"],
+      ["Bravas del mar","Sepia, stracciatella, picadillo y nuestra salsa brava","15,50"],
+      ["Calamares","Aros de calamar rebozados","10,90"],
+      ["Sepia trinchada","","12,50"],
+      ["Focaccia de romero","Pan de pizza con aceite y romero. Doble masa +2 €","7,50"],
+      ["Focaccia di reco","Pan de pizza con quesos italianos","10,50"],
+      ["Focaccia Taroncello","Tomate, jamón serrano, burrata, rúcula y parmesano","13,50"],
+      ["Nachos","","12,50"],
+      ["Jalapeños fritos","Rellenos de queso crema","9,90"],
+      ["Bombetas de parmesano","Con mayonesa trufada","8,90"]
+    ],
+    "Pasta y risotto": [
+      ["Spaguetti carbonara","Guanciale, parmesano, huevo y pimienta","13,90"],
+      ["Gnocchi al pesto","Albahaca, ajo, piñones y parmesano","13,90"],
+      ["Fiocchi a los 4 quesos","Rellenos de queso y pera","13,90"],
+      ["Llunete relleno","De foie, con cherry, rúcula y parmesano","16,00"],
+      ["Bottoni Gamberros","Ravioli de gamba roja con aceite de pimentón","17,00"],
+      ["La Nerone","Tallarines con trufa, guanciale, parmesano y cherry","15,50"],
+      ["Giganti Neri","Rellenos de salmón con salsa de almejas, espárragos y cherry","14,00"],
+      ["Risotto Rosetta","Cerdo, ternera, pimienta y romero. Mínimo 2 raciones","16,90"],
+      ["Risotto Funghi","Setas y parmesano. Mínimo 2 raciones","15,90"],
+      ["Lasaña a la boloñesa","Carne picada, tomate y mozzarella","13,50"]
+    ],
+    "Ensaladas": [
+      ["Ensalada César","Pollo, lechuga, bacon, picatostes y parmesano","11,90"],
+      ["Ensalada caprese","Tomate, mozzarella y pesto de albahaca","10,50"],
+      ["Ensalada de cabra","Queso de cabra flameado, cherry, aguacate, frutos secos y siropes de mango y frambuesa","13,00"],
+      ["Burrata y guanciale","Mezclum, cherry, guanciale y burrata","17,00"]
+    ],
+    "Carnes y pescado": [
+      ["Entrecot de novillo argentino","300 g de lomo alto con guarnición y salsa a elegir","22,00"],
+      ["Scaloppina","Al vino blanco, al limón o con boletus (+2,50 €)","14,90"],
+      ["Mero a la plancha","Con guarnición","16,50"]
+    ],
+    "Hamburguesas": [
+      ["La Messi","Brioche, 175 g de Angus, chorizo criollo, provoleta y salsa gaucha","17,50"],
+      ["Triple Bacon","Brioche, 175 g de Angus, cheddar, mayonesa de sriracha y bacon en tres formatos","17,00"],
+      ["La Trufada","Brioche, 175 g de Angus, tomate, lechuga y salsa de trufa","15,50"]
+    ],
+    "Dulces": [
+      ["Cheesecake de Oreo","","7,50"],
+      ["Tarta de dulce de leche","","7,50"],
+      ["Straccetti di Nutella","Churros de masa de pizza con Nutella y chocolate blanco","10,90"]
+    ]
+  };
+  const tabs = document.getElementById('pestanas');
+  const lista = document.getElementById('lista');
+  const mas = document.getElementById('mas');
+  const LIM = 8;
+  function pinta(sec){
+    const items = CARTA[sec];
+    lista.innerHTML = items.map(([n,d,p],i) =>
+      `<li${i>=LIM?' class="oculto"':''}><div class="fila"><span>${n}</span><span class="pr edit">${p} €</span></div>${d?`<p>${d}</p>`:''}</li>`).join('');
+    mas.hidden = items.length <= LIM;
+    mas.textContent = `Ver toda la sección (${items.length})`;
+    tabs.querySelectorAll('button').forEach(b => b.setAttribute('aria-selected', b.dataset.s === sec));
+  }
+  Object.keys(CARTA).forEach((s,i) => {
+    const b = document.createElement('button');
+    b.type='button'; b.role='tab'; b.dataset.s=s; b.textContent=s;
+    b.addEventListener('click', () => pinta(s));
+    tabs.appendChild(b);
+  });
+  mas.addEventListener('click', () => { lista.querySelectorAll('.oculto').forEach(li => li.classList.remove('oculto')); mas.hidden = true; });
+  pinta('Pizzas');
+  [document.getElementById('ver-pizzas')].forEach(a => a.addEventListener('click', () => { pinta('Pizzas'); mas.click(); }));
+
+  /* Horario con la hora de Madrid. Minutos desde las 00:00; los cierres pasada la medianoche pasan de 1440. */
+  const H = {0:[[720,990],[1140,1440]],1:[],2:[],3:[[1140,1380]],4:[[1140,1380]],5:[[750,960],[1140,1470]],6:[[750,960],[1140,1470]]};
+  const NOMBRES = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  const hhmm = m => { m = m % 1440; return String(Math.floor(m/60)).padStart(2,'0') + ':' + String(m%60).padStart(2,'0'); };
+  function ahoraMadrid(){
+    const p = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Madrid',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+    const g = t => p.find(x=>x.type===t).value;
+    const d = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday'));
+    return {d, m: parseInt(g('hour'))*60 + parseInt(g('minute'))};
+  }
+  function estado(){
+    const {d,m} = ahoraMadrid();
+    const el = document.getElementById('estado');
+    const ayer = (d+6)%7;
+    for (const [a,c] of H[ayer]) if (c > 1440 && m < c-1440) return pon(el,'abierto',`Abierto ahora, hasta las ${hhmm(c)}`);
+    for (const [a,c] of H[d]) {
+      if (m >= a && m < c) return pon(el,'abierto',`Abierto ahora, hasta las ${hhmm(c)}`);
+      if (m < a) return pon(el,'pronto',`Hoy abrimos a las ${hhmm(a)}`);
+    }
+    for (let i=1;i<=7;i++){
+      const dd=(d+i)%7;
+      if (H[dd].length) return pon(el,'cerrado',`Cerrado ahora. Abrimos ${i===1?'mañana':'el '+NOMBRES[dd]} a las ${hhmm(H[dd][0][0])}`);
+    }
+  }
+  function pon(el,c,t){ el.className='estado '+c; el.textContent=t; }
+  estado(); setInterval(estado, 60000);
+  const hoy = ahoraMadrid().d;
+  document.querySelector(`#horario tr[data-d="${hoy}"]`)?.classList.add('hoy');
+
+  document.getElementById('ver-edit').addEventListener('click', e => {
+    const on = document.body.classList.toggle('ver-editables');
+    e.currentTarget.setAttribute('aria-pressed', on);
+    e.currentTarget.textContent = on ? 'Ocultar datos a confirmar' : 'Resaltar datos a confirmar';
+  });
+</script>
+</body>
+</html>
